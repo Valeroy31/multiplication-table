@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Tables</title>
+    <style>
+        body{
+            background: linear-gradient(360deg, rgba(0,0,0,0.7),rgb(0, 187, 255));
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+        }
+        input{
+            outline: 0;
+            border: 0;
+            background-color: rgba(0,0,130,0.3);
+            color: white;
+            padding: .5em 2em;
+        }
+        input::placeholder{
+            color: white;
+            padding-left: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Enter first number: <input type="number" id="first-input" placeholder="Enter number"></p>
+        <p>Enter second number: <input type="number" id="second-input" placeholder="Enter number"></p>
+        <button onclick="myFunction()">Get Table!</button>
+        <div id="output" class="shake"></div>
+    </div>
+
+    <script>
+        function myFunction() {
+            const Value1 = Number(document.getElementById('first-input').value);
+            const Value2 = Number(document.getElementById('second-input').value);
+            let outputHTML = '';
+            for (let index = Value1; index <= Value2; index++) {
+            outputHTML += `<h3>The Multiplication table for ${index} is: </h3>`;
+            outputHTML += '<p>';
+                for (let j = 1; j <= 12; j++){
+                    outputHTML += `<li>${index} × ${j} = ${index * j}</li>`;
+                }
+                outputHTML += '</p>' ;
+            }
+             document.getElementById('output').innerHTML = outputHTML;
+        }
+    </script>
+</body>
+</html>
